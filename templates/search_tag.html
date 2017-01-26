@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    {% for post in post_list %}
+        <section>
+            <header>
+                <h2 ><a href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
+
+                    <p >
+                        Time:  <a href="#">{{ post.date_time |date:"Y M d"}}</a>
+                        <a  href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
+                    </p>
+            </header>
+
+                <div>
+                    <p>
+                        {{ post.content}}
+                    </p>
+                </div>
+                <a  href="{% url "detail" id=post.id %}">Read More >>> </a>
+        </section>
+    {% endfor %}
+</div><!-- /.blog-post -->
+{% endblock %}
