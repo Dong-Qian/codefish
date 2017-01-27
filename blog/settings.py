@@ -127,48 +127,5 @@ STATICFILES_DIRS = (
 )
 
 
-RESOURCE_ROOT='/draceditor/'
-STATIC_ROOT=  os.path.join(RESOURCE_ROOT,'static')
-
-
-
-# Global draceditor settings
-# Input: string boolean, `true/false`
-
-# Imgur API Keys
-DRACEDITOR_IMGUR_CLIENT_ID = '4e83f1c60e38725'
-DRACEDITOR_IMGUR_API_KEY   = '2c9b88644a33be4dc4b17562599a94a24e937aa7'
-
-# Safe Mode
-DRACEDITOR_MARKDOWN_SAFE_MODE = True # default
-
-# Markdownify
-DRACEDITOR_MARKDOWNIFY_FUNCTION = 'draceditor.utils.markdownify' # default
-DRACEDITOR_MARKDOWNIFY_URL = '/draceditor/markdownify/' # default
-
-# Markdown extensions (default)
-DRACEDITOR_MARKDOWN_EXTENSIONS = [
-    'markdown.extensions.extra',
-    'markdown.extensions.nl2br',
-    'markdown.extensions.smarty',
-    'markdown.extensions.fenced_code',
-
-    # Custom markdown extensions.
-    'draceditor.extensions.urlize',
-    'draceditor.extensions.del_ins', # ~~strikethrough~~ and ++underscores++
-    'draceditor.extensions.mention', # require for mention
-    'draceditor.extensions.emoji',   # require for emoji
-]
-
-# Markdown Extensions Configs
-DRACEDITOR_MARKDOWN_EXTENSION_CONFIGS = {}
-
-# Markdown urls
-DRACEDITOR_UPLOAD_URL = '/draceditor/uploader/' # default
-DRACEDITOR_SEARCH_USERS_URL = '/draceditor/search-user/' # default
-
-# Markdown Extensions
-DRACEDITOR_MARKDOWN_BASE_EMOJI_URL = 'https://assets-cdn.github.com/images/icons/emoji/' # default
-DRACEDITOR_MARKDOWN_BASE_MENTION_URL = 'https://qiandongyq.pythonanywhere.com' # default (change this)
 
 
