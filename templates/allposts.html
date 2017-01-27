@@ -12,7 +12,7 @@
 
                     <p >
                         Time:  <a  href="#">{{ post.date_time |date:"Y /m /d"}}</a>
-                        <a href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
+                        <a class="tag a-tag" href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
                     </p>
             </header>
         </section>

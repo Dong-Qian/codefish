@@ -1,25 +1,25 @@
 {% extends "base.html" %}
-
+{% load dractags %}
 {% block content %}
 <div class="posts">
     {% for post in post_list %}
         <section>
             <header>
-                <h2 ><a href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
+                <h2><a class = "title" href="{% url "detail" id=post.id %}">{{ post.title }}</a></h2>
 
                     <p>
-                        Time:  <a  href="#">{{ post.date_time |date:"Y M d"}}</a>
-                        <a href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
+                        <span class="glyphicon glyphicon-time">&nbsp</span>Posted at :<a class="time" href="#">&nbsp;&nbsp;{{ post.date_time |date:"Y M d"}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class = "category" href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
                     </p>
             </header>
 
-                <div>
-                    <p>
-                        {{ post.content|truncatewords_html:50 }}
-                    </p>
-                </div>
-                <a href="{% url "detail" id=post.id %}">Read More >>> </a>
+            <div>
+                <p class="left30">
+                    {{ post.shortDes}}
+                </p>
+            </div>
+                <button class="pull-right"><a href="{% url "detail" id=post.id %}">Read More>>> </a></button>
         </section>
     {% endfor %}
-</div><!-- /.blog-post -->
+</div>
 {% endblock %}
