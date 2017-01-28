@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.home, name='home'),
-    url(r'^post/(?P<id>\d+)/$', views.detail, name='detail'),
+    url(r'^post/(?P<slug>[-\w]+)/$', views.detail, name='detail'),
     url(r'^allposts/$', views.allposts, name='allposts'),
     url(r'^about/$', views.about, name='about'),
     url(r'^category/(?P<tag>\w+)/$', views.search_tag, name='search_tag'),

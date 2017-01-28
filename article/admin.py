@@ -16,6 +16,7 @@ class ArticleAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.TextField: {'widget': AdminDraceditorWidget},
     }
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Article, ArticleAdmin)

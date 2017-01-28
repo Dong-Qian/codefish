@@ -15,14 +15,16 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-def detail(request, id):
+def detail(request, slug):
     try:
-        post = Article.objects.get(id=str(id))
+        post = Article.objects.get(slug =slug)
     except Article.DoesNotExist:
         raise Http404
     context = {
         'post': post
     }
+
+
     return render(request, 'post.html', context)
 
 

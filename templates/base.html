@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 <head>
   <title>Code Fish</title>
@@ -15,19 +15,30 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Code Fish</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url "home" %}">Code Fish</a>
     </div>
-      <form class="navbar-form navbar-left">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">search</button>
-    </form>
+
+      <!--Search bar-->
+      <form class="navbar-form navbar-right" action="/search/" method="get">
+         <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  name ="search" placeholder="Search title" >
+                    <span class="input-group-addon">
+                        <lable type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </lable>
+                    </span>
+         </div>
+      </form>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{% url "home" %}">Home</a></li>
-        <li><a href="{% url "home" %}">Blog</a></li>
         <li><a href="{% url "about" %}">About</a></li>
-        <li><a href="#">Contact</a></li>
       </ul>
     </div>
   </div>
@@ -36,20 +47,19 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-md-2 sidenav">
+    <div class="col-sm-2 sidenav">
       <h4>Learning Notes</h4>
       <ul class="nav nav-pill nav-stacked" data-spy="affix" data-offset-top="100">
-        <li><a href="{% url "home" %}">Blog</a></li>
         <li><a href="{% url "search_tag" tag="Django" %}">Django</a></li>
         <li><a href="{% url "search_tag" tag="Android" %}">Android</a></li>
       </ul>
     </div>
 
-      <div class="col-md-1">
+      <div class="col-sm-1">
 
     </div>
     <!--Body for post-->
-    <div class="col-md-6">
+    <div class="col-sm-6">
         <div>
             {% block content %}
             {% endblock %}
