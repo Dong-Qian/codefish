@@ -20,4 +20,4 @@ Purpose
 
 Preview
 -------------
-![codefish](http://imgur.com/DKvb7tX)
+![codefish](http://i.imgur.com/DKvb7tX.png)
