@@ -12,7 +12,8 @@
         </p>
 
         <p class="left30">{{ post.shortDes|safe_markdown}}</p>
-        <button class="pull-right"><a href="{% url "detail" slug=post.slug %}">Read More>>></a></button>
+        <a href="{% url "detail" slug=post.slug %}" class="btn btn-info btn-small pull-right">
+        <span class="glyphicon glyphicon-menu-right"></span> Read More</a>
         <br><br>
 
     {% endfor %}

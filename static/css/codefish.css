@@ -72,13 +72,3 @@ p.left30 {
 .pull-right {
   float: right !important;
 }
-
-.bg-1 {
-  background-color: #1abc9c; /* Green */
-  color: #ffffff;
-}
-
-.bg-2 {
-  background-color: #474e5d; /* Dark Blue */
-  color: #ffffff;
-}
