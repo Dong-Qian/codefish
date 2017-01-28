@@ -17,3 +17,7 @@ Purpose
 >- Familiar with MVC website develop arrpoach
 
 ## My Webiste : [codefish](www.codefish.ca)
+
+Preview
+-------------
+![codefish](http://imgur.com/DKvb7tX)
