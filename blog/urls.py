@@ -15,17 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from article import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    url(r'^$', views.home, name='home'),
-    url(r'^post/(?P<slug>[-\w]+)/$', views.detail, name='detail'),
-    url(r'^allposts/$', views.allposts, name='allposts'),
-    url(r'^about/$', views.about, name='about'),
-    url(r'^category/(?P<tag>\w+)/$', views.search_tag, name='search_tag'),
-    url(r'search/$', views.search_post, name='search_post'),
-    url(r'^draceditor/', include('draceditor.urls')),
-
+    url(r'^', include("article.urls")),
 ]
+
+# if settings.Debug:
+#     urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

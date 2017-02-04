@@ -32,6 +32,7 @@ body {
 	font-family: Arial, Helvetica, verdana, arial, sans-serif;
 	font-size: 16px;
 	border: 0 none;
+	padding-top: 50px;
 }
 
 
@@ -44,24 +45,18 @@ body {
 }
 
 
-body {
-    padding-top: 50px;
-}
-
 
 a.title{
     color:black;
 }
-a.time {
-    color: #0873a5;
-     font-style: italic;
-}
+
+
 
 a.category{
     margin: 0 0.1em;
     padding: 0.3em 1em;
     background: #df2d4f;
-    font-size: 80%;
+    font-size: 90%;
     color:white;
 }
 
@@ -71,4 +66,9 @@ p.left30 {
 
 .pull-right {
   float: right !important;
+}
+
+.time{
+    color:red;
+
 }

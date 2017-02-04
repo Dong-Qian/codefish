@@ -1,0 +1,12 @@
+<!--post detail-->
+{% extends "base.html" %}
+{% load custom_markdown %}
+{% block content %}
+<div >
+    <h3>{{ postDetail.title }}</h3>
+    <p><span class="glyphicon glyphicon-time">&nbsp;</span>Posted at : <a class="time"  href="#">&nbsp;{{ postDetail.date_time|date:"Y /m /d"}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="category" href="{% url "search_tag" tag=postDetail.category %}">{{ postDetail.category }}</a><hr>
+    </p>
+    <p>{{ postDetail.content|custom_markdown }}</p>
+</div><!-- /.blog-post -->
+{% endblock %}

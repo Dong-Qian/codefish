@@ -1,11 +1,15 @@
+<!--post list from category or search-->
 {% extends "base.html" %}
 {% load custom_markdown %}
 {% block content %}
 <div>
-    <div class="head">
-        <p>Category - All Articles</p>
-        <hr id="underLine">
-    </div>
+    {% if error %}
+        <h2 class="post-title">No articles match your search!</a></h2>
+    {% else %}
+     <div class="head">
+            <p>Category - {{ post_list.0.category }}</p>
+            <hr id="underLine">
+     </div><br>
     {% for post in post_list %}
 
         <!--post title and category-->
@@ -15,11 +19,12 @@
         </h3><br>
 
         <!--post content with limit words-->
-    <p>{{ post.content|custom_markdown|truncatewords_html:70 }}</p>
-    <a href="{% url "postDetail" slug=post.slug %}"><button class="btn-default readMore">Read More</button></a>
+        <p class="content-markdown">{{ post.content|custom_markdown|truncatewords_html:50 }}<a href="{% url "postDetail" slug=post.slug %}">&nbsp;&nbsp;&nbsp;Read More</a></p>
 
-        <br><br><hr>
+        <br><br><br>
     {% endfor %}
+    {% endif %}
+
 
     <div class="container text-center">
         <ul class="pagination">
@@ -35,5 +40,7 @@
             {% endif %}
         </ul>
     </div>
+
+
 </div>
 {% endblock %}
