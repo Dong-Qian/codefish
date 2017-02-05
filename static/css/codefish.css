@@ -1,74 +1,142 @@
+
 .navbar {
-  margin-bottom: 0;
-  border-radius: 0;
-}
-/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-.row.content {height: 1500px}
-
-/* Set gray background color and 100% height */
-.sidenav {
-  background-color: #f1f1f1;
-  background-repeat: repeat;
-  height:100%; !important;
-  }
-
-/* Set black background color, white text and some padding */
-footer {
-  background: black;
-  color: white;
-}
-
-
-/* On small screens, set height to 'auto' for sidenav and grid */
-@media screen and (max-width: 767px) {
- .sidenav {
-    height: auto;
-    padding: 15px;
- }
-  .row.content {height: auto;}
+background: black;
 }
 
 body {
-	font-family: Arial, Helvetica, verdana, arial, sans-serif;
-	font-size: 16px;
-	border: 0 none;
-	padding-top: 50px;
+font-family: Arial, Helvetica, verdana, arial, sans-serif;
+font-size: 15px;
+border: 0 none;
+padding-top: 50px;
+}
+
+.sidenav {
+background-color: #f1f1f1;
+height:100%;
+}
+
+<!--/* Set height of the grid so .sidenav can be 100% (adjust if needed) */-->
+.row {height: 1500px}
+
+
+footer {
+background: black;
+color: white;
+}
+
+.nav.navbar-nav.navbar-right li a {
+color: white;
+font-size:18px;
+}
+
+.btn.btn-danger.navbar-btn.login {
+    margin-right:30px;
 }
 
 
-.nav-stacked li{
-  padding: 5px;
-}
+.btn.btn-info.navbar-btn.create {
 
-.affix {
-  top:50px
 }
 
 
-
-a.title{
-    color:black;
+.nav.navbar-nav.navbar-right li a:hover {
+background-color: #555;
+color: red;
 }
 
+
+
+.nav.nav-pill.nav-stacked li a {
+font-size:18px;
+padding-top:20px;
+}
+
+
+.nav.nav-pill.nav-stacked li a:hover {
+background-color: #555;
+color: white;
+}
+
+
+.col-sm-8.content {
+margin-left: 100px;
+padding-top: 20px;
+}
 
 
 a.category{
-    margin: 0 0.1em;
-    padding: 0.3em 1em;
-    background: #df2d4f;
-    font-size: 90%;
-    color:white;
+margin: 0 0.1em;
+padding: 0.3em 1em;
+background: #df2d4f;
+font-size: 90%;
+color: white;
+font-size: 12px;
+margin-left:15px;
+
 }
 
-p.left30 {
-    margin-left:30px; /* Set as you wish */
+a.category:hover {
+background: #479900;
+text-decoration: none;
 }
 
-.pull-right {
-  float: right !important;
+
+.postAt {
+margin-left: 30px;
+font-size: 14px;
+text-align: right;
 }
 
-.time{
-    color:red;
+#underLine {
+display: block;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+margin-left: auto;
+margin-right: auto;
+border-style: inset;
+border-width: 1px;
+}
 
+.head {
+font-size: 20px;
+text-align: right;
+font-weight: bold;
+}
+
+.title {
+color:black;
+}
+
+.title:hover {
+color: #ff8000;
+text-decoration: none;
+}
+
+
+span.timeLocation {
+font-style: italic;
+font-size: 15px;
+color: black;
+float: right;
+}
+
+.time {
+color: #66b2ff;
+}
+
+.readMore:hover {
+background: #99ccff;
+text-decoration: none;
+}
+
+
+.glyphicon.glyphicon-edit.editIcon{
+    margin-left: 50px;
+    font-size: 30px;
+
+}
+
+.glyphicon.glyphicon-remove-circle.deleteIcon {
+    margin-left: 30px;
+    font-size: 30px;
 }

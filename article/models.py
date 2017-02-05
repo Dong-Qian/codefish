@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db.models import permalink
 from django.template.defaultfilters import slugify
+from django.urls import reverse
 
 
 class Article(models.Model) :
@@ -13,7 +14,7 @@ class Article(models.Model) :
     slug = models.SlugField(max_length=100, unique=True, db_index=True)
 
     def save(self, *args, **kwargs):
-        if not self.id:  # stackoverflow有人建议设置这个，让每篇文章的标题只slugify一次。
+        if not self.id:
             self.slug = slugify(self.title)
         return super(Article, self).save(*args, **kwargs)
 
@@ -22,5 +23,9 @@ class Article(models.Model) :
 
     class Meta:
         ordering = ['-date_time']
+
+    def get_absolute_url(self):
+        return reverse('postDetail', kwargs={"slug": self.slug})
+
 
 

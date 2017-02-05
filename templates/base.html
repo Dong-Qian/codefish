@@ -14,197 +14,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-
     <!--my CSS-->
-   <!-- <link href="{% static "css/codefish.css" %}" rel="stylesheet" /> -->
+    <link href="{% static "css\codefish.css" %}" rel="stylesheet" />
 
-
-    <style>
-        .codehilite .hll { background-color: #ffffcc }
-        .codehilite .c { color: #999988; font-style: italic } /* Comment */
-        .codehilite .err { color: #a61717; background-color: #e3d2d2 } /* Error */
-        .codehilite .k { color: #000000; font-weight: bold } /* Keyword */
-        .codehilite .o { color: #000000; font-weight: bold } /* Operator */
-        .codehilite .cm { color: #999988; font-style: italic } /* Comment.Multiline */
-        .codehilite .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
-        .codehilite .c1 { color: #999988; font-style: italic } /* Comment.Single */
-        .codehilite .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
-        .codehilite .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
-        .codehilite .ge { color: #000000; font-style: italic } /* Generic.Emph */
-        .codehilite .gr { color: #aa0000 } /* Generic.Error */
-        .codehilite .gh { color: #999999 } /* Generic.Heading */
-        .codehilite .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
-        .codehilite .go { color: #888888 } /* Generic.Output */
-        .codehilite .gp { color: #555555 } /* Generic.Prompt */
-        .codehilite .gs { font-weight: bold } /* Generic.Strong */
-        .codehilite .gu { color: #aaaaaa } /* Generic.Subheading */
-        .codehilite .gt { color: #aa0000 } /* Generic.Traceback */
-        .codehilite .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
-        .codehilite .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
-        .codehilite .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
-        .codehilite .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
-        .codehilite .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
-        .codehilite .kt { color: #445588; font-weight: bold } /* Keyword.Type */
-        .codehilite .m { color: #009999 } /* Literal.Number */
-        .codehilite .s { color: #d01040 } /* Literal.String */
-        .codehilite .na { color: #008080 } /* Name.Attribute */
-        .codehilite .nb { color: #0086B3 } /* Name.Builtin */
-        .codehilite .nc { color: #445588; font-weight: bold } /* Name.Class */
-        .codehilite .no { color: #008080 } /* Name.Constant */
-        .codehilite .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
-        .codehilite .ni { color: #800080 } /* Name.Entity */
-        .codehilite .ne { color: #990000; font-weight: bold } /* Name.Exception */
-        .codehilite .nf { color: #990000; font-weight: bold } /* Name.Function */
-        .codehilite .nl { color: #990000; font-weight: bold } /* Name.Label */
-        .codehilite .nn { color: #555555 } /* Name.Namespace */
-        .codehilite .nt { color: #000080 } /* Name.Tag */
-        .codehilite .nv { color: #008080 } /* Name.Variable */
-        .codehilite .ow { color: #000000; font-weight: bold } /* Operator.Word */
-        .codehilite .w { color: #bbbbbb } /* Text.Whitespace */
-        .codehilite .mf { color: #009999 } /* Literal.Number.Float */
-        .codehilite .mh { color: #009999 } /* Literal.Number.Hex */
-        .codehilite .mi { color: #009999 } /* Literal.Number.Integer */
-        .codehilite .mo { color: #009999 } /* Literal.Number.Oct */
-        .codehilite .sb { color: #d01040 } /* Literal.String.Backtick */
-        .codehilite .sc { color: #d01040 } /* Literal.String.Char */
-        .codehilite .sd { color: #d01040 } /* Literal.String.Doc */
-        .codehilite .s2 { color: #d01040 } /* Literal.String.Double */
-        .codehilite .se { color: #d01040 } /* Literal.String.Escape */
-        .codehilite .sh { color: #d01040 } /* Literal.String.Heredoc */
-        .codehilite .si { color: #d01040 } /* Literal.String.Interpol */
-        .codehilite .sx { color: #d01040 } /* Literal.String.Other */
-        .codehilite .sr { color: #009926 } /* Literal.String.Regex */
-        .codehilite .s1 { color: #d01040 } /* Literal.String.Single */
-        .codehilite .ss { color: #990073 } /* Literal.String.Symbol */
-        .codehilite .bp { color: #999999 } /* Name.Builtin.Pseudo */
-        .codehilite .vc { color: #008080 } /* Name.Variable.Class */
-        .codehilite .vg { color: #008080 } /* Name.Variable.Global */
-        .codehilite .vi { color: #008080 } /* Name.Variable.Instance */
-        .codehilite .il { color: #009999 } /* Literal.Number.Integer.Long */
-
-        .navbar {
-
-            background: black;
-        }
-
-        body {
-
-            padding-top: 50px;
-        }
-
-        .sidenav {
-            background-color: #f1f1f1;
-            height:100%;
-        }
-
-        <!--/* Set height of the grid so .sidenav can be 100% (adjust if needed) */-->
-        .row {height: 1500px}
-
-
-        footer {
-          background: black;
-          color: white;
-        }
-
-        .nav.navbar-nav.navbar-right li a {
-            color: white;
-            font-size:18px;
-        }
-
-         .nav.navbar-nav.navbar-right li a:hover {
-            background-color: #555;
-            color: red;
-        }
-
-
-
-        .nav.nav-pill.nav-stacked li a {
-            font-size:18px;
-            padding-top:20px;
-        }
-
-
-        .nav.nav-pill.nav-stacked li a:hover {
-            background-color: #555;
-            color: white;
-        }
-
-
-        .col-sm-8.content {
-            margin-left: 100px;
-            padding-top: 20px;
-        }
-
-
-        a.category{
-            margin: 0 0.1em;
-            padding: 0.3em 1em;
-            background: #df2d4f;
-            font-size: 90%;
-            color: white;
-            font-size: 12px;
-            margin-left:15px;
-
-        }
-
-        a.category:hover {
-            background: #479900;
-            text-decoration: none;
-        }
-
-
-        .postAt {
-            margin-left: 30px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        #underLine {
-            display: block;
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-            margin-left: auto;
-            margin-right: auto;
-            border-style: inset;
-            border-width: 1px;
-        }
-
-        .head {
-            font-size: 20px;
-            text-align: right;
-            font-weight: bold;
-        }
-
-        .title {
-            color:black;
-        }
-
-        .title:hover {
-            color: #ff8000;
-            text-decoration: none;
-        }
-
-
-        span.timeLocation {
-            font-style: italic;
-            font-size: 15px;
-            color: black;
-            float: right;
-        }
-
-        .time {
-            color: #66b2ff;
-        }
-
-        .readMore:hover {
-            background: #99ccff;
-            text-decoration: none;
-        }
-
-
-
-
-    </style>
 </head>
 
 <body>
@@ -219,6 +31,7 @@
 
             <!--Search bar-->
             <form class="navbar-form navbar-left" action="/search/" method="GET">
+
                 <div class="input-group stylish-input-group">
                     <input type="text" class="form-control"  name ="search" placeholder="Search Title" >
                     <span class="input-group-addon">
@@ -229,11 +42,19 @@
                 </div>
             </form>
 
+
             <!--This is the menu items-->
             <div class="collapse navbar-collapse" id="myNavbar">
+                <a href="{% url "post_create" %}"><button class="btn btn-info navbar-btn create">Create Post</button></a>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url "home" %}">Home</a></li>
                     <li><a href="{% url "about" %}">About</a></li>
+                    {% if user.is_authenticated %}
+                    <a href="{% url "logout" %}"><button class="btn btn-danger navbar-btn login">Logout</button></a>
+					{% endif %}
+					{% if not user.is_authenticated %}
+					<a href="{% url "login" %}"><button class="btn btn-danger navbar-btn login">Login</button></a>
+					{% endif %}
                 </ul>
             </div>
 

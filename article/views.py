@@ -1,7 +1,12 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
 from article.models import Article
+from .forms import ArticleForm
 
 
 # Create your views here.
@@ -106,3 +111,50 @@ def search_post(request):
                 return render(request, 'postList.html', contextNo)
 
     return redirect('/')
+
+
+@login_required
+def post_create(request):
+    form = ArticleForm(request.POST or None)
+
+    if form.is_valid():
+        instance =  form.save(commit=False)
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "post_form.html", context)
+
+@login_required
+def post_update(request, slug = None):
+    try:
+        postDetail = Article.objects.get(slug =slug)
+    except Article.DoesNotExist:
+        raise Http404
+
+    form = ArticleForm(request.POST or None , instance=postDetail)
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+    context = {
+        'postDetail': postDetail,
+        "form": form
+    }
+
+    return render(request, 'post_form.html', context)
+
+@login_required
+def post_delete(request, slug = None):
+    try:
+        instance = Article.objects.get(slug =slug)
+        instance.delete()
+    except Article.DoesNotExist:
+        raise Http404
+    return HttpResponseRedirect(reverse('home'))

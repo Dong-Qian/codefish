@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} - {{ page_title }} {% endblock %}
+
+{% load staticfiles %}
+{% block content %}
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <h1>Login</h1>
+
+
+    <div>
+      <form name="login_form" method="post" action="/login/">
+          {% csrf_token %}
+
+            {{ login_form.as_p }}
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

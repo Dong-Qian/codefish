@@ -5,7 +5,9 @@
 <div >
     <h3>{{ postDetail.title }}</h3>
     <p><span class="glyphicon glyphicon-time">&nbsp;</span>Posted at : <a class="time"  href="#">&nbsp;{{ postDetail.date_time|date:"Y /m /d"}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="category" href="{% url "search_tag" tag=postDetail.category %}">{{ postDetail.category }}</a><hr>
+        <a class="category" href="{% url "search_tag" tag=postDetail.category %}">{{ postDetail.category }}</a>
+        <a class="edit" href="{% url "post_update" slug=postDetail.slug %}"><span class="glyphicon glyphicon-edit editIcon"></span></a>
+        <a class="edit" href="{% url "post_delete" slug=postDetail.slug %}"><span class="glyphicon glyphicon-remove-circle deleteIcon"></span></a><hr>
     </p>
     <p>{{ postDetail.content|custom_markdown }}</p>
 </div><!-- /.blog-post -->

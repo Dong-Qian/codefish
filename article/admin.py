@@ -9,5 +9,6 @@ from article.models import Article
 
 class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
+    list_display = ("title", "slug", "date_time")
 
 admin.site.register(Article, ArticleAdmin)
