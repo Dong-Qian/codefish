@@ -140,3 +140,20 @@ text-decoration: none;
     margin-left: 30px;
     font-size: 30px;
 }
+
+.link{
+    margin-top: 50px;
+}
+
+.nav.nav-pill.nav-stacked.tools li a {
+font-size:16px;
+padding-top:10px;
+color: #cc0066;
+}
+
+
+.nav.nav-pill.nav-stacked.tools li a:hover {
+background-color: #555;
+color: white;
+}
+

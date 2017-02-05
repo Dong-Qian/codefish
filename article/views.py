@@ -29,7 +29,8 @@ def home(request):
         post_list = paginator.page(paginator.num_pages)
 
     context = {
-        'post_list': post_list
+        'post_list': post_list,
+        'post_count': len(post_list)
     }
     return render(request, 'home.html', context)
 
@@ -37,6 +38,8 @@ def home(request):
 def postDetail(request, slug):
     try:
         postDetail = Article.objects.get(slug =slug)
+        postDetail.views += 1
+        postDetail.save()
     except Article.DoesNotExist:
         raise Http404
     context = {
@@ -44,32 +47,6 @@ def postDetail(request, slug):
     }
 
     return render(request, 'postDetail.html', context)
-
-# return the list of post which match the condition (category, search)
-def postList(request):
-    try:
-        queryset = Article.objects.all()
-    except Article.DoesNotExist:
-        raise Http404
-    paginator = Paginator(queryset, 5)  # Show 25 contacts per page
-
-    page = request.GET.get('page')
-    try:
-        post_list = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        post_list = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        post_list = paginator.page(paginator.num_pages)
-
-    context = {
-        "post_list": post_list,
-        'error': False
-    }
-
-    return render(request, 'postList.html', context)
-
 
 
 # return about page
@@ -84,7 +61,7 @@ def search_tag(request, tag):
     except Article.DoesNotExist:
         raise Http404
     context = {
-        'post_list': post_list
+        'post_list': post_list,
     }
     return render(request, 'postList.html', context)
 

@@ -7,7 +7,7 @@
         <h2 class="post-title">No articles match your search!</a></h2>
     {% else %}
      <div class="head">
-            <p>Category - {{ post_list.0.category }}</p>
+         <p>Category - {{ post_list.0.category }} <span>({{ post_list.count }})</span></p>
             <hr id="underLine">
      </div><br>
     {% for post in post_list %}

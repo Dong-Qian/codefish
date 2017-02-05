@@ -8,10 +8,11 @@ from django.urls import reverse
 
 class Article(models.Model) :
     title = models.CharField(max_length = 100)
-    category = models.CharField(max_length = 50, blank = True)
+    category = models.CharField(max_length = 50)
     date_time = models.DateTimeField(auto_now_add = True)
-    content = models.TextField(blank = True, null = True)
+    content = models.TextField()
     slug = models.SlugField(max_length=100, unique=True, db_index=True)
+    views = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if not self.id:

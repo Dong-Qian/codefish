@@ -3,7 +3,7 @@
 {% block content %}
 <div>
     <div class="head">
-        <p>Category - All Articles</p>
+         <p>Category - All Articles <span>({{ post_count }})</span></p>
         <hr id="underLine">
     </div>
     {% for post in post_list %}
@@ -11,7 +11,7 @@
         <!--post title and category-->
         <h3><a class="title" href="{% url "postDetail" slug=post.slug %}">{{ post.title }}</a>
             <a class ="category" href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
-            <span class="timeLocation"><span class="glyphicon glyphicon-time">&nbsp;</span> Posted at&nbsp;:&nbsp;&nbsp;<span class="time">{{ post.date_time | timesince}} ago</span></span>
+            <span class="timeLocation"><span class="glyphicon glyphicon-time">&nbsp;</span> Posted at&nbsp;:&nbsp;&nbsp;<span class="time">{{ post.date_time | timesince}} ago</span>&nbsp;&nbsp;Read ({{ post.views }})</span>
         </h3><br>
 
         <!--post content with limit words-->

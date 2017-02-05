@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {% block title %} - {{ page_title }} {% endblock %}
 
 {% load staticfiles %}
@@ -14,7 +14,7 @@
       <form name="login_form" method="post" action="/login/">
           {% csrf_token %}
 
-            {{ login_form.as_p }}
+            {{ login_form|crispy }}
 
           <div class="form-group">
             <button type="submit" class="btn btn-primary">Submit</button>
