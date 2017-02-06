@@ -90,6 +90,13 @@ def search_post(request):
     return redirect('/')
 
 
+# return about page
+def space_ship(request):
+    return render(request, 'space_ship.html')
+
+
+
+
 @login_required
 def post_create(request):
     form = ArticleForm(request.POST or None)

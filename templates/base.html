@@ -15,10 +15,20 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
     <!--my CSS-->
-    <!--<link href="{% static "css\codefish.css" %}" rel="stylesheet" />-->
-    <link href="https://cdn.rawgit.com/Dong-Qian/staticServer/master/codefish.css" rel="stylesheet" />
-    <link href="https://cdn.rawgit.com/Dong-Qian/staticServer/master/github.css" rel="stylesheet" />
-    <!--<link href="{% static "css\github.css" %}" rel="stylesheet" />-->
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Dong-Qian/staticServer/9ee5e5a9ba38b3c80f05d540e3ed54ef503ae9c0/codefish.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Dong-Qian/staticServer/d919d67399e268227bfb811c89949d8621ef8eff/github.css" />
+    <link rel="stylesheet" href="{% static "css\codefish.css" %}"/>
+    <link rel="stylesheet" href="{% static "css\github.css" %}"/>
+
+
+    <!--space ship game-->
+    <script type="text/javascript" src="{% static "js\space_ship.js" %}"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/Dong-Qian/staticServer/6815564fde83984488738e8daff6b90371adedff/space_ship.js"></script>
+
+    <style>
+
+    </style>
 
 </head>
 
@@ -87,7 +97,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">HTML5
                         <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Game1</a></li>
+                                <li><a href="{% url "space_ship" %}">Space Ship Game</a></li>
                                 <li><a href="#">Game2</a></li>
                                 <li><a href="#">Game3</a></li>
                             </ul>
@@ -135,6 +145,8 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
 
     </script>
+
+
 
  
     <!--CDN markdown-->

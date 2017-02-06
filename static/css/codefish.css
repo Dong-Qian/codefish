@@ -163,3 +163,20 @@ color: white;
 font-size: 20px;
 font-weight: bold;
 }
+
+
+canvas {
+border:1px solid #d3d3d3;
+background-image: url("/static/images/SectorBackground.bmp");
+background-size: cover;
+
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.dropdown-menu li a:hover {
+   background-color: #555;
+}
