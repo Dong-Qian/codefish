@@ -2,8 +2,8 @@
 {% load custom_markdown %}
 {% block content %}
 <div>
-    <div class="head">
-         <p>Category - All Articles <span>({{ post_count }})</span></p>
+    <div >
+        <h3 class ='totalPost'> Total Posts: {{ post_count }}<span class="head">Category - {{ post_list.0.category }} </span></h3>
         <hr id="underLine">
     </div>
     {% for post in post_list %}
