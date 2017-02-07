@@ -9,16 +9,37 @@
                 <center><h1>Space Ship Game</h1></center>
             </div><br><br>
             <canvas id="myCanvas" width="800" height="550"></canvas><br><br>
-            <button type="button"  class="btn btn-danger" onclick="startGame()">Start Game</button>
+            <button type="button"  class="btn btn-danger" id="myBtn">Start Game</button>
+
+                    <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h1>Choose Difficult Level</h1><br>
+                    <label class="radio-inline">
+                        <input type="radio" name="level" value="1" checked/><strong>Easy</strong>
+                    </label>&nbsp;&nbsp;&nbsp;
+                    <label class="radio-inline">
+                        <input type="radio" name="level" value="2"/><strong>Hard</strong>
+                    </label><br/><br/><br/>
+                    <label class="radio-inline">
+                        <input type="radio" name="level" value="3"/><strong>Super Hard</strong>
+                    </label><br/><br/><br/>
+                    <button class="btn btn-danger" type="button" id="btn_close">Done</button>
+                </div>
+
+            </div>
         </center>
     </div>
 
 
     <div class="col-sm-4">
         <br><br><br><br><br><br>
-        <h3>1. Use arrow key to move the ship</h3><br>
-        <h3>2. Avoid the Planets to keep alive</h3><br>
-        <h3>3. Try to get highest Score</h3>
+        <h3>1. Choose the difficult level</h3><br>
+        <h3>2. Use arrow key to move the ship</h3><br>
+        <h3>3. Avoid the Planets to keep alive</h3><br>
+        <h3>4. Try to get highest Score</h3>
     </div>
 
 {% endblock %}

@@ -9,14 +9,27 @@ imgArray[1].src = "/static/images/Planet2.bmp";
 imgArray[2] = new Image();
 imgArray[2].src = "/static/images/Planet3.bmp";
 var restart = 0;
+var speed = 0;
+var frame = 0;
 
-function startGame() {
+
+function startGame(level) {
     $('body').addClass('stop-scrolling');
     myPlanets = [];
-    myGameObject = new component(30, 30, "/static/images/ShipBase.bmp", 10, 300, "image");
+    myGameObject = new component(30, 30, "/static/images/ShipBase.bmp", 0, 300, "image");
     myScore = new component("30px", "Consolas", "white", 600, 40, "text");
+    if(level == 1){
+        speed = 25;
+        frame = 40;
+
+    }else if(level == 2){
+        speed = 15;
+        frame = 30;
+    }else{
+        speed = 10;
+        frame = 15;
+    }
     space.start();
-    space.clear();
 }
 // create game area to contain components
 var space = {
@@ -26,7 +39,7 @@ var space = {
         this.canvas.height = 600;
         this.frameNo = 0;
         this.context = this.canvas.getContext("2d");
-        this.interval = setInterval(updateSpace, 10); // 50 frames per sec
+        this.interval = setInterval(updateSpace, speed); // 50 frames per sec
         window.addEventListener('keydown', function (e) {
             space.keys = (space.keys || []);
             space.keys[e.keyCode] = true;
@@ -38,7 +51,7 @@ var space = {
     clear: function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
-    stop : function() {
+    stop: function(){
         clearInterval(this.interval);
     }
 }
@@ -118,11 +131,11 @@ function updateSpace(){
     space.clear();
     space.frameNo += 1;
 
-    if (space.frameNo == 1 || everyinterval(20)) {
+    if (space.frameNo == 1 || everyinterval(frame)) {
         height = Math.floor((Math.random() * 20) + 20);
         width = Math.floor((Math.random() * 40) + 20);
-        x = space.canvas.width - 40;
-        y = Math.floor((Math.random() * 580) + 10);
+        x = space.canvas.width;
+        y = Math.floor((Math.random() * 600) + 0);
         img = Math.floor((Math.random() * 3) + 0);
         myPlanets.push(new component(width, height, imgArray[img].src, x, y, "image"));
     }
@@ -136,13 +149,68 @@ function updateSpace(){
 
     myGameObject.newX = 0;
     myGameObject.newY = 0;
-    if (space.keys && space.keys[37]) {myGameObject.newX = -1; }
-    if (space.keys && space.keys[39]) {myGameObject.newX = 1; }
-    if (space.keys && space.keys[38]) {myGameObject.newY = -1; }
-    if (space.keys && space.keys[40]) {myGameObject.newY = 1; }
+
+    if (space.keys && space.keys[39]) {
+         if(myGameObject.x <=770){
+            myGameObject.newX = 1;
+        }
+    }
+
+    if (space.keys && space.keys[37]) {
+         if(myGameObject.x >=0){
+            myGameObject.newX = -1;
+        }
+    }
+
+    if (space.keys && space.keys[38]) {
+        if(myGameObject.y>=0){
+            myGameObject.newY = -1;
+        }
+    }
+
+    if (space.keys && space.keys[40]) {
+        if(myGameObject.y<= 570){
+            myGameObject.newY = 1
+        }
+    }
 
     myScore.text="SCORE: " + space.frameNo;
     myScore.update();
     myGameObject.newPos();
     myGameObject.update();
+}
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btn_close = document.getElementById("btn_close");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+btn_close.onclick = function() {
+    var level = document.getElementsByName('level');
+    var level_value;
+    for(var i = 0; i < level.length; i++){
+        if(level[i].checked){
+            level_value = level[i].value;
+        }
+    }
+    modal.style.display = "none";
+    startGame(level_value);
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
